@@ -1,0 +1,826 @@
+{
+  "ano": 2026,
+  "fonte": {
+    "titulo_lista": "Remuneração de Empregados 2026",
+    "nome": "Remuneracao dos Empregados - 07 2026.pdf",
+    "data_upload": "17/09/2026",
+    "url": "https://coren-go.implanta.net.br/portaltransparencia/Publico/ArquivosAnexos/Download?idArquivoAnexo=da5dd155-dbdc-401c-a8b0-4299e6eee1a7"
+  },
+  "hash_pdf": "ca820e8cb17588d96794a4ec6ac5b7df4403d86ed7da2d4069381471bac3cb7f",
+  "atualizado_em": "2026-09-17T17:09:27.336297-03:00",
+  "indicadores": {
+    "total_empregados": 54,
+    "total_salario_cadastro": 576279.47,
+    "total_proventos": 734395.98,
+    "total_descontos": 126465.43,
+    "total_inss": 30932.95,
+    "total_liquido": 578097.6,
+    "media_liquida": 10705.51,
+    "maior_remuneracao": {
+      "nome": "ANGELICA OLIVEIRA PAULA",
+      "cargo": "Enfermeira Fiscal",
+      "valor": 19133.29
+    },
+    "menor_remuneracao": {
+      "nome": "LUCIANA FREIRE D EÇA NOGUEIRA SANTOS",
+      "cargo": "Assessora de Planejamento",
+      "valor": 0.0
+    }
+  },
+  "por_cargo": [
+    {
+      "cargo": "Assitente Administrativo",
+      "quantidade": 15,
+      "salario_cadastro": 60698.55,
+      "proventos": 152859.3,
+      "descontos": 24751.23,
+      "inss": 8461.14,
+      "liquido": 119646.93
+    },
+    {
+      "cargo": "Enfermeira Fiscal",
+      "quantidade": 9,
+      "salario_cadastro": 113304.33,
+      "proventos": 132660.63,
+      "descontos": 21118.36,
+      "inss": 3000.16,
+      "liquido": 108542.11
+    },
+    {
+      "cargo": "Enfermeiro Fiscal",
+      "quantidade": 4,
+      "salario_cadastro": 50357.48,
+      "proventos": 66905.28,
+      "descontos": 19553.09,
+      "inss": 2964.21,
+      "liquido": 44387.98
+    },
+    {
+      "cargo": "Advogado",
+      "quantidade": 2,
+      "salario_cadastro": 34037.74,
+      "proventos": 39010.82,
+      "descontos": 8009.43,
+      "inss": 648.35,
+      "liquido": 30353.04
+    },
+    {
+      "cargo": "Chefe de Gabinete",
+      "quantidade": 1,
+      "salario_cadastro": 21371.93,
+      "proventos": 24041.93,
+      "descontos": 4719.53,
+      "inss": 988.07,
+      "liquido": 18334.33
+    },
+    {
+      "cargo": "Assessora Especial da Presidente",
+      "quantidade": 1,
+      "salario_cadastro": 21371.93,
+      "proventos": 23536.93,
+      "descontos": 4718.48,
+      "inss": 988.07,
+      "liquido": 17830.38
+    },
+    {
+      "cargo": "Procuradora Geral",
+      "quantidade": 1,
+      "salario_cadastro": 21371.93,
+      "proventos": 22041.78,
+      "descontos": 3442.74,
+      "inss": 988.07,
+      "liquido": 17610.97
+    },
+    {
+      "cargo": "Assessora Financeira",
+      "quantidade": 1,
+      "salario_cadastro": 17971.86,
+      "proventos": 21381.3,
+      "descontos": 3787.31,
+      "inss": 988.07,
+      "liquido": 16605.92
+    },
+    {
+      "cargo": "Assessora de Comunicação",
+      "quantidade": 1,
+      "salario_cadastro": 17971.86,
+      "proventos": 21241.3,
+      "descontos": 3733.77,
+      "inss": 988.07,
+      "liquido": 16519.46
+    },
+    {
+      "cargo": "Assess.de Dep.Gestão do Exerc. Profissional",
+      "quantidade": 1,
+      "salario_cadastro": 17971.86,
+      "proventos": 20981.3,
+      "descontos": 3683.03,
+      "inss": 988.07,
+      "liquido": 16310.2
+    },
+    {
+      "cargo": "Assessor de Web Designer",
+      "quantidade": 1,
+      "salario_cadastro": 17971.86,
+      "proventos": 20900.58,
+      "descontos": 3732.72,
+      "inss": 988.07,
+      "liquido": 16179.79
+    },
+    {
+      "cargo": "Assessor de Gestão Des. Patrimônio",
+      "quantidade": 1,
+      "salario_cadastro": 17971.86,
+      "proventos": 20641.86,
+      "descontos": 3784.51,
+      "inss": 988.07,
+      "liquido": 15869.28
+    },
+    {
+      "cargo": "Assessor Executivo",
+      "quantidade": 1,
+      "salario_cadastro": 14571.77,
+      "proventos": 18431.75,
+      "descontos": 2852.28,
+      "inss": 988.07,
+      "liquido": 14591.4
+    },
+    {
+      "cargo": "Assessor de Planejamento",
+      "quantidade": 1,
+      "salario_cadastro": 14571.77,
+      "proventos": 17797.96,
+      "descontos": 2852.28,
+      "inss": 988.07,
+      "liquido": 13957.61
+    },
+    {
+      "cargo": "Assessor Administr. e de Recursos Humanos",
+      "quantidade": 1,
+      "salario_cadastro": 4046.57,
+      "proventos": 16779.13,
+      "descontos": 2644.16,
+      "inss": 988.07,
+      "liquido": 13146.9
+    },
+    {
+      "cargo": "Assistente da Chefia de Gabinete",
+      "quantidade": 1,
+      "salario_cadastro": 14571.77,
+      "proventos": 15807.21,
+      "descontos": 2288.53,
+      "inss": 710.91,
+      "liquido": 12807.77
+    },
+    {
+      "cargo": "Digitalizador",
+      "quantidade": 1,
+      "salario_cadastro": 4046.57,
+      "proventos": 16900.96,
+      "descontos": 3319.28,
+      "inss": 988.07,
+      "liquido": 12593.61
+    },
+    {
+      "cargo": "Advogada",
+      "quantidade": 1,
+      "salario_cadastro": 17971.86,
+      "proventos": 14406.62,
+      "descontos": 2076.03,
+      "inss": 0.0,
+      "liquido": 12330.59
+    },
+    {
+      "cargo": "Assessor Técnico de Obras",
+      "quantidade": 1,
+      "salario_cadastro": 17971.86,
+      "proventos": 13278.49,
+      "descontos": 1747.25,
+      "inss": 0.0,
+      "liquido": 11531.24
+    },
+    {
+      "cargo": "Assessora de Eventos",
+      "quantidade": 1,
+      "salario_cadastro": 11171.69,
+      "proventos": 12986.57,
+      "descontos": 1310.09,
+      "inss": 988.07,
+      "liquido": 10688.41
+    },
+    {
+      "cargo": "Controladora Interna",
+      "quantidade": 1,
+      "salario_cadastro": 21371.93,
+      "proventos": 10755.81,
+      "descontos": 1099.89,
+      "inss": 0.0,
+      "liquido": 9655.92
+    },
+    {
+      "cargo": "Assessora de Atendimento",
+      "quantidade": 1,
+      "salario_cadastro": 7771.62,
+      "proventos": 10651.62,
+      "descontos": 957.21,
+      "inss": 889.52,
+      "liquido": 8804.89
+    },
+    {
+      "cargo": "Assistente do DGEP",
+      "quantidade": 1,
+      "salario_cadastro": 7771.62,
+      "proventos": 7115.27,
+      "descontos": 22.0,
+      "inss": 461.22,
+      "liquido": 6632.05
+    },
+    {
+      "cargo": "Motorista",
+      "quantidade": 1,
+      "salario_cadastro": 3596.97,
+      "proventos": 6985.34,
+      "descontos": 204.27,
+      "inss": 674.4,
+      "liquido": 6106.67
+    },
+    {
+      "cargo": "Telefonista",
+      "quantidade": 1,
+      "salario_cadastro": 2847.58,
+      "proventos": 6196.24,
+      "descontos": 57.96,
+      "inss": 278.13,
+      "liquido": 5860.15
+    },
+    {
+      "cargo": "Estagiário",
+      "quantidade": 1,
+      "salario_cadastro": 1100.0,
+      "proventos": 100.0,
+      "descontos": 0.0,
+      "inss": 0.0,
+      "liquido": 1200.0
+    },
+    {
+      "cargo": "Assessora de Planejamento",
+      "quantidade": 1,
+      "salario_cadastro": 17971.86,
+      "proventos": 0.0,
+      "descontos": 0.0,
+      "inss": 0.0,
+      "liquido": 0.0
+    },
+    {
+      "cargo": "Copeira",
+      "quantidade": 1,
+      "salario_cadastro": 2550.84,
+      "proventos": 0.0,
+      "descontos": 0.0,
+      "inss": 0.0,
+      "liquido": 0.0
+    }
+  ],
+  "registros": [
+    {
+      "codigo": "227",
+      "nome": "ADRIELLY CRISTINA DA CUNHA MARTINS",
+      "cargo": "Assessora de Atendimento",
+      "salario_cadastro": 7771.62,
+      "proventos": 10651.62,
+      "descontos": 957.21,
+      "inss": 889.52,
+      "liquido": 8804.89
+    },
+    {
+      "codigo": "223",
+      "nome": "ALBANIA THAISY BATISTA DA SILVA",
+      "cargo": "Assess.de Dep.Gestão do Exerc. Profissional",
+      "salario_cadastro": 17971.86,
+      "proventos": 20981.3,
+      "descontos": 3683.03,
+      "inss": 988.07,
+      "liquido": 16310.2
+    },
+    {
+      "codigo": "226",
+      "nome": "ANA PAULA ALVES DE SOUZA",
+      "cargo": "Assessora de Eventos",
+      "salario_cadastro": 11171.69,
+      "proventos": 12986.57,
+      "descontos": 1310.09,
+      "inss": 988.07,
+      "liquido": 10688.41
+    },
+    {
+      "codigo": "165",
+      "nome": "ANDRÉ PEREIRA DA SILVA",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 7534.46,
+      "descontos": 183.96,
+      "inss": 273.47,
+      "liquido": 7077.03
+    },
+    {
+      "codigo": "171",
+      "nome": "ANGELICA OLIVEIRA PAULA",
+      "cargo": "Enfermeira Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 24795.41,
+      "descontos": 4674.05,
+      "inss": 988.07,
+      "liquido": 19133.29
+    },
+    {
+      "codigo": "225",
+      "nome": "ANTONIO BAUER MACIEL BATISTA",
+      "cargo": "Assessor Executivo",
+      "salario_cadastro": 14571.77,
+      "proventos": 18431.75,
+      "descontos": 2852.28,
+      "inss": 988.07,
+      "liquido": 14591.4
+    },
+    {
+      "codigo": "214",
+      "nome": "ARILDO DE SOUZA",
+      "cargo": "Chefe de Gabinete",
+      "salario_cadastro": 21371.93,
+      "proventos": 24041.93,
+      "descontos": 4719.53,
+      "inss": 988.07,
+      "liquido": 18334.33
+    },
+    {
+      "codigo": "82",
+      "nome": "BENEDITO GARCIA GOMES",
+      "cargo": "Motorista",
+      "salario_cadastro": 3596.97,
+      "proventos": 6985.34,
+      "descontos": 204.27,
+      "inss": 674.4,
+      "liquido": 6106.67
+    },
+    {
+      "codigo": "43",
+      "nome": "CARLA DE AQUINO PEREIRA",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 10517.8,
+      "descontos": 1347.52,
+      "inss": 988.07,
+      "liquido": 8182.21
+    },
+    {
+      "codigo": "161",
+      "nome": "CELIA VIANA FRANCO",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 7941.6,
+      "descontos": 524.49,
+      "inss": 436.0,
+      "liquido": 6981.11
+    },
+    {
+      "codigo": "170",
+      "nome": "CHRISTIANE MOREIRA SOUZA",
+      "cargo": "Enfermeira Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 16390.95,
+      "descontos": 2503.91,
+      "inss": 843.19,
+      "liquido": 13043.85
+    },
+    {
+      "codigo": "106",
+      "nome": "CLEUSA DE SOUSA RESENDE MENDES",
+      "cargo": "Enfermeira Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 12753.07,
+      "descontos": 2157.18,
+      "inss": 47.97,
+      "liquido": 10547.92
+    },
+    {
+      "codigo": "160",
+      "nome": "CLEUZENI MORAES DE PAULA",
+      "cargo": "Assessora Financeira",
+      "salario_cadastro": 17971.86,
+      "proventos": 21381.3,
+      "descontos": 3787.31,
+      "inss": 988.07,
+      "liquido": 16605.92
+    },
+    {
+      "codigo": "213",
+      "nome": "DANIELLA CRISTINA SALLES",
+      "cargo": "Procuradora Geral",
+      "salario_cadastro": 21371.93,
+      "proventos": 22041.78,
+      "descontos": 3442.74,
+      "inss": 988.07,
+      "liquido": 17610.97
+    },
+    {
+      "codigo": "215",
+      "nome": "DEIVID PEREIRA GOMES DE ALENCAR",
+      "cargo": "Assessor de Gestão Des. Patrimônio",
+      "salario_cadastro": 17971.86,
+      "proventos": 20641.86,
+      "descontos": 3784.51,
+      "inss": 988.07,
+      "liquido": 15869.28
+    },
+    {
+      "codigo": "144",
+      "nome": "DELEON FERNANDES DE SA",
+      "cargo": "Telefonista",
+      "salario_cadastro": 2847.58,
+      "proventos": 6196.24,
+      "descontos": 57.96,
+      "inss": 278.13,
+      "liquido": 5860.15
+    },
+    {
+      "codigo": "183",
+      "nome": "DIOGO FREIRE DA SILVA",
+      "cargo": "Assessor de Web Designer",
+      "salario_cadastro": 17971.86,
+      "proventos": 20900.58,
+      "descontos": 3732.72,
+      "inss": 988.07,
+      "liquido": 16179.79
+    },
+    {
+      "codigo": "86",
+      "nome": "DORAILDE DE PAULA ALVARENGA",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 15409.51,
+      "descontos": 2683.61,
+      "inss": 988.07,
+      "liquido": 11737.83
+    },
+    {
+      "codigo": "39",
+      "nome": "DYLZENY LOPES",
+      "cargo": "Enfermeira Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 13452.72,
+      "descontos": 2275.39,
+      "inss": 4.88,
+      "liquido": 11172.45
+    },
+    {
+      "codigo": "184",
+      "nome": "ELVIANE DE CASTRO QUEIROZ",
+      "cargo": "Advogada",
+      "salario_cadastro": 17971.86,
+      "proventos": 14406.62,
+      "descontos": 2076.03,
+      "inss": 0.0,
+      "liquido": 12330.59
+    },
+    {
+      "codigo": "166",
+      "nome": "ELYKERSON FRANCISCO SANTOS",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 2646.64,
+      "descontos": 1286.46,
+      "inss": 57.01,
+      "liquido": 1303.17
+    },
+    {
+      "codigo": "72",
+      "nome": "ERNANDES ALVES NEVES",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 17180.75,
+      "descontos": 3308.79,
+      "inss": 988.07,
+      "liquido": 12883.89
+    },
+    {
+      "codigo": "216",
+      "nome": "FERNANDA JOYCE ALVES LEITE",
+      "cargo": "Assistente do DGEP",
+      "salario_cadastro": 7771.62,
+      "proventos": 7115.27,
+      "descontos": 22.0,
+      "inss": 461.22,
+      "liquido": 6632.05
+    },
+    {
+      "codigo": "202",
+      "nome": "FLÁVIO HENRIQUE CRISPIM BRAGA",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 9092.14,
+      "descontos": 2165.19,
+      "inss": 656.58,
+      "liquido": 6270.37
+    },
+    {
+      "codigo": "4",
+      "nome": "FRANKLIN SILVA BRANDAO",
+      "cargo": "Advogado",
+      "salario_cadastro": 18932.79,
+      "proventos": 18932.79,
+      "descontos": 4130.8,
+      "inss": 0.0,
+      "liquido": 14801.99
+    },
+    {
+      "codigo": "81",
+      "nome": "GIOVANNA DA SILVA BARROS",
+      "cargo": "Enfermeira Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 18642.58,
+      "descontos": 3523.66,
+      "inss": 988.07,
+      "liquido": 14130.85
+    },
+    {
+      "codigo": "232",
+      "nome": "GIULIA SERIKAKU ROSSI",
+      "cargo": "Estagiário",
+      "salario_cadastro": 1100.0,
+      "proventos": 100.0,
+      "descontos": 0.0,
+      "inss": 0.0,
+      "liquido": 1200.0
+    },
+    {
+      "codigo": "168",
+      "nome": "GLAYSON CAMPOS DA SILVA",
+      "cargo": "Assessor Administr. e de Recursos Humanos",
+      "salario_cadastro": 4046.57,
+      "proventos": 16779.13,
+      "descontos": 2644.16,
+      "inss": 988.07,
+      "liquido": 13146.9
+    },
+    {
+      "codigo": "163",
+      "nome": "JANAINA RODRIGUES DUARTE",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 9416.37,
+      "descontos": 682.13,
+      "inss": 425.04,
+      "liquido": 8309.2
+    },
+    {
+      "codigo": "59",
+      "nome": "JOSANE PIRES DA SILVA",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 2646.87,
+      "descontos": 1521.98,
+      "inss": 0.0,
+      "liquido": 1124.89
+    },
+    {
+      "codigo": "79",
+      "nome": "KARLA RODRIGUES CABRAL LOUZADA",
+      "cargo": "Enfermeira Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 13392.64,
+      "descontos": 2368.87,
+      "inss": 127.98,
+      "liquido": 10895.79
+    },
+    {
+      "codigo": "135",
+      "nome": "KATIANE DE OLIVEIRA CAMPOS GONCALVES",
+      "cargo": "Enfermeira Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 12828.33,
+      "descontos": 1596.99,
+      "inss": 0.0,
+      "liquido": 11231.34
+    },
+    {
+      "codigo": "122",
+      "nome": "KISSIA RAYDES R. A. DE QUEIROZ MIRANDA",
+      "cargo": "Enfermeira Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 8703.47,
+      "descontos": 329.87,
+      "inss": 0.0,
+      "liquido": 8373.6
+    },
+    {
+      "codigo": "178",
+      "nome": "LUAN CARLOS GOMES MARQUES",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 15025.15,
+      "descontos": 2975.3,
+      "inss": 0.0,
+      "liquido": 12049.85
+    },
+    {
+      "codigo": "159",
+      "nome": "LUCAS RORIZ REIS",
+      "cargo": "Advogado",
+      "salario_cadastro": 15104.95,
+      "proventos": 20078.03,
+      "descontos": 3878.63,
+      "inss": 648.35,
+      "liquido": 15551.05
+    },
+    {
+      "codigo": "205",
+      "nome": "LUCIANA FREIRE D EÇA NOGUEIRA SANTOS",
+      "cargo": "Assessora de Planejamento",
+      "salario_cadastro": 17971.86,
+      "proventos": 0.0,
+      "descontos": 0.0,
+      "inss": 0.0,
+      "liquido": 0.0
+    },
+    {
+      "codigo": "66",
+      "nome": "LUZIA NOGUEIRA REIS DOMINGUES",
+      "cargo": "Enfermeira Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 11701.46,
+      "descontos": 1688.44,
+      "inss": 0.0,
+      "liquido": 10013.02
+    },
+    {
+      "codigo": "128",
+      "nome": "MARCOS RICARDO VIEIRA GOMES",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 15348.44,
+      "descontos": 2128.39,
+      "inss": 988.07,
+      "liquido": 12231.98
+    },
+    {
+      "codigo": "123",
+      "nome": "MARCOS VINICIUS JOSE RIBEIRO",
+      "cargo": "Enfermeiro Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 10780.92,
+      "descontos": 5277.08,
+      "inss": 0.0,
+      "liquido": 5503.84
+    },
+    {
+      "codigo": "70",
+      "nome": "MARIA DE JESUS ALVES MILHOMENS",
+      "cargo": "Copeira",
+      "salario_cadastro": 2550.84,
+      "proventos": 0.0,
+      "descontos": 0.0,
+      "inss": 0.0,
+      "liquido": 0.0
+    },
+    {
+      "codigo": "38",
+      "nome": "MARIA DE JESUS BRAGA PINTO",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 12051.82,
+      "descontos": 3390.51,
+      "inss": 400.13,
+      "liquido": 8261.18
+    },
+    {
+      "codigo": "228",
+      "nome": "MARIA FATIMA DOS SANTOS",
+      "cargo": "Assessora de Comunicação",
+      "salario_cadastro": 17971.86,
+      "proventos": 21241.3,
+      "descontos": 3733.77,
+      "inss": 988.07,
+      "liquido": 16519.46
+    },
+    {
+      "codigo": "173",
+      "nome": "MARILIA NOGUEIRA DE ABREU",
+      "cargo": "Enfermeiro Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 21229.04,
+      "descontos": 8021.36,
+      "inss": 988.07,
+      "liquido": 12219.61
+    },
+    {
+      "codigo": "162",
+      "nome": "MELLANY DE J. SILVEIRA MATOS MODESTO",
+      "cargo": "Enfermeiro Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 16794.53,
+      "descontos": 3343.27,
+      "inss": 988.07,
+      "liquido": 12463.19
+    },
+    {
+      "codigo": "61",
+      "nome": "MOISES CARLOS BRAGA",
+      "cargo": "Digitalizador",
+      "salario_cadastro": 4046.57,
+      "proventos": 16900.96,
+      "descontos": 3319.28,
+      "inss": 988.07,
+      "liquido": 12593.61
+    },
+    {
+      "codigo": "211",
+      "nome": "NIVIA ROSA DA SILVA",
+      "cargo": "Controladora Interna",
+      "salario_cadastro": 21371.93,
+      "proventos": 10755.81,
+      "descontos": 1099.89,
+      "inss": 0.0,
+      "liquido": 9655.92
+    },
+    {
+      "codigo": "233",
+      "nome": "PEDRO PAULO MARQUES LEAL",
+      "cargo": "Assessor de Planejamento",
+      "salario_cadastro": 14571.77,
+      "proventos": 17797.96,
+      "descontos": 2852.28,
+      "inss": 988.07,
+      "liquido": 13957.61
+    },
+    {
+      "codigo": "97",
+      "nome": "RAFAEL CASEMIRO BAZILIO",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 10431.11,
+      "descontos": 1197.11,
+      "inss": 988.07,
+      "liquido": 8245.93
+    },
+    {
+      "codigo": "191",
+      "nome": "ROGERIO MATHEUS BARBOSA",
+      "cargo": "Assessor Técnico de Obras",
+      "salario_cadastro": 17971.86,
+      "proventos": 13278.49,
+      "descontos": 1747.25,
+      "inss": 0.0,
+      "liquido": 11531.24
+    },
+    {
+      "codigo": "212",
+      "nome": "STHEFANNY CRISTHINA DE SOUSA",
+      "cargo": "Assessora Especial da Presidente",
+      "salario_cadastro": 21371.93,
+      "proventos": 23536.93,
+      "descontos": 4718.48,
+      "inss": 988.07,
+      "liquido": 17830.38
+    },
+    {
+      "codigo": "156",
+      "nome": "TANIA BORGES DIAS",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 7808.68,
+      "descontos": 23.05,
+      "inss": 609.7,
+      "liquido": 7175.93
+    },
+    {
+      "codigo": "158",
+      "nome": "THIAGO MOURA MARRA",
+      "cargo": "Assitente Administrativo",
+      "salario_cadastro": 4046.57,
+      "proventos": 9807.96,
+      "descontos": 1332.74,
+      "inss": 662.86,
+      "liquido": 7812.36
+    },
+    {
+      "codigo": "224",
+      "nome": "VALERIA CARDOSO GUIMARÃES",
+      "cargo": "Assistente da Chefia de Gabinete",
+      "salario_cadastro": 14571.77,
+      "proventos": 15807.21,
+      "descontos": 2288.53,
+      "inss": 710.91,
+      "liquido": 12807.77
+    },
+    {
+      "codigo": "100",
+      "nome": "VANESSA DA SILVA PALANDRANI",
+      "cargo": "Enfermeiro Fiscal",
+      "salario_cadastro": 12589.37,
+      "proventos": 18100.79,
+      "descontos": 2911.38,
+      "inss": 988.07,
+      "liquido": 14201.34
+    }
+  ]
+}
