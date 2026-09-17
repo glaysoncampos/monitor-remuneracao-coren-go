@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitor de Remuneração | Coren-GO</title>
+
+  <style>
+    :root {
+      --azul: #174f82;
+      --azul-escuro: #0b2f50;
+      --azul-claro: #eaf3fb;
+      --verde: #087f8c;
+      --laranja: #e47a2e;
+      --fundo: #f4f7fa;
+      --branco: #ffffff;
+      --texto: #17212b;
+      --texto-sec: #637282;
+      --borda: #dbe3ea;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul));
+      color: white;
+      padding: 28px 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header .container {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      opacity: 0.9;
+    }
+
+    .status {
+      margin-top: 12px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .card {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.04);
+    }
+
+    .card .titulo {
+      color: var(--texto-sec);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .card .valor {
+      margin-top: 8px;
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--azul-escuro);
+    }
+
+    .card .detalhe {
+      margin-top: 5px;
+      color: var(--texto-sec);
+      font-size: 12px;
+    }
+
+    .painel {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .painel h2 {
+      margin: 0 0 16px;
+      font-size: 19px;
+    }
+
+    .barra-controles {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    select,
+    input {
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: white;
+      font-size: 14px;
+    }
+
+    input {
+      min-width: 280px;
+    }
+
+    .grafico {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .grafico-linha {
+      display: grid;
+      grid-template-columns: minmax(180px, 300px) 1fr 130px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .cargo {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .barra-fundo {
+      height: 18px;
+      background: var(--azul-claro);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .barra {
+      height: 100%;
+      background: linear-gradient(90deg, var(--azul), var(--verde));
+      border-radius: 20px;
+    }
+
+    .grafico-valor {
+      text-align: right;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .ranking {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .ranking-item {
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .ranking-posicao {
+      color: var(--laranja);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .ranking-nome {
+      font-weight: 700;
+      margin: 6px 0;
+      font-size: 13px;
+    }
+
+    .ranking-cargo {
+      color: var(--texto-sec);
+      font-size: 12px;
+      min-height: 30px;
+    }
+
+    .ranking-valor {
+      margin-top: 8px;
+      font-weight: 800;
+      color: var(--azul);
+    }
+
+    .tabela-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th {
+      text-align: left;
+      background: var(--azul);
+      color: white;
+      padding: 11px;
+      position: sticky;
+      top: 0;
+    }
+
+    td {
+      padding: 10px 11px;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    tr:hover td {
+      background: #f7fbff;
+    }
+
+    .numero {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .acoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .botao {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--azul);
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .botao.secundario {
+      background: var(--verde);
+    }
+
+    .rodape-info {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--texto-sec);
+      line-height: 1.6;
+    }
+
+    .erro {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff0f0;
+      color: #8b1e1e;
+      border: 1px solid #ffc5c5;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 1000px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ranking {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grafico-linha {
+        grid-template-columns: 180px 1fr 110px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 22px 14px;
+      }
+
+      .container {
+        padding: 14px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .ranking {
+        grid-template-columns: 1fr;
+      }
+
+      input {
+        min-width: 100%;
+        width: 100%;
+      }
+
+      select {
+        width: 100%;
+      }
+
+      .grafico-linha {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .grafico-valor {
+        text-align: left;
+      }
+
+      .barra-fundo {
+        height: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <h1>Monitor de Remuneração dos Empregados</h1>
+    <p>Conselho Regional de Enfermagem de Goiás</p>
+    <div class="status" id="cabecalhoStatus">
+      Carregando dados...
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="cards">
+    <div class="card">
+      <div class="titulo">Folha líquida</div>
+      <div class="valor" id="totalLiquido">...</div>
+      <div class="detalhe">Valor líquido total do relatório</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo">Empregados</div>
+      <div class="valor" id="totalEmpregados">...</div>
+      <div class="detalhe">Registros identificados</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo">Proventos</div>
+      <div class="valor" id="totalProventos">...</div>
+      <div class="detalhe">Total de proventos</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo">Descontos</div>
+      <div class="valor" id="totalDescontos">...</div>
+      <div class="detalhe">Total de descontos</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo">INSS</div>
+      <div class="valor" id="totalInss">...</div>
+      <div class="detalhe">Total informado na coluna INSS</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo">Média líquida</div>
+      <div class="valor" id="mediaLiquida">...</div>
+      <div class="detalhe">Média por empregado</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo">Maior remuneração líquida</div>
+      <div class="valor" id="maiorValor">...</div>
+      <div class="detalhe" id="maiorNome"></div>
+    </div>
+
+    <div class="card">
+      <div class="titulo">Menor remuneração líquida</div>
+      <div class="valor" id="menorValor">...</div>
+      <div class="detalhe" id="menorNome"></div>
+    </div>
+  </section>
+
+  <section class="painel">
+    <h2>Valores por cargo</h2>
+
+    <div class="barra-controles">
+      <label for="metricaCargo">Indicador:</label>
+
+      <select id="metricaCargo">
+        <option value="liquido">Líquido</option>
+        <option value="proventos">Proventos</option>
+        <option value="salario_cadastro">Salário cadastro</option>
+        <option value="descontos">Descontos</option>
+        <option value="inss">INSS</option>
+      </select>
+    </div>
+
+    <div id="graficoCargo" class="grafico"></div>
+  </section>
+
+  <section class="painel">
+    <h2>Maiores remunerações líquidas</h2>
+    <div id="ranking" class="ranking"></div>
+  </section>
+
+  <section class="painel">
+    <h2>Detalhamento da remuneração</h2>
+
+    <div class="barra-controles">
+      <input
+        type="search"
+        id="pesquisa"
+        placeholder="Pesquisar funcionário ou cargo..."
+      >
+
+      <select id="filtroCargo">
+        <option value="">Todos os cargos</option>
+      </select>
+
+      <select id="ordenacao">
+        <option value="liquido_desc">Maior líquido</option>
+        <option value="liquido_asc">Menor líquido</option>
+        <option value="nome">Nome A a Z</option>
+        <option value="proventos_desc">Maiores proventos</option>
+      </select>
+    </div>
+
+    <div class="tabela-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Funcionário</th>
+            <th>Cargo</th>
+            <th class="numero">Salário cadastro</th>
+            <th class="numero">Proventos</th>
+            <th class="numero">Descontos</th>
+            <th class="numero">INSS</th>
+            <th class="numero">Líquido</th>
+          </tr>
+        </thead>
+
+        <tbody id="tabelaCorpo"></tbody>
+      </table>
+    </div>
+
+    <div class="acoes">
+      <a
+        class="botao secundario"
+        href="./remuneracoes.csv"
+        download
+      >
+        Baixar CSV
+      </a>
+
+      <a
+        class="botao"
+        id="linkRelatorio"
+        href="#"
+        target="_blank"
+        rel="noopener"
+      >
+        Abrir relatório original
+      </a>
+    </div>
+
+    <div class="rodape-info" id="informacoesFonte"></div>
+  </section>
+
+</main>
+
+<script>
+  let dados = null;
+  let registros = [];
+
+  const moeda = new Intl.NumberFormat(
+    "pt-BR",
+    {
+      style: "currency",
+      currency: "BRL"
+    }
+  );
+
+  function formatarMoeda(valor) {
+    return moeda.format(Number(valor || 0));
+  }
+
+  function escapar(texto) {
+    return String(texto ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;");
+  }
+
+  function preencherCards() {
+    const i = dados.indicadores;
+
+    document.getElementById("totalLiquido").textContent =
+      formatarMoeda(i.total_liquido);
+
+    document.getElementById("totalEmpregados").textContent =
+      i.total_empregados;
+
+    document.getElementById("totalProventos").textContent =
+      formatarMoeda(i.total_proventos);
+
+    document.getElementById("totalDescontos").textContent =
+      formatarMoeda(i.total_descontos);
+
+    document.getElementById("totalInss").textContent =
+      formatarMoeda(i.total_inss);
+
+    document.getElementById("mediaLiquida").textContent =
+      formatarMoeda(i.media_liquida);
+
+    document.getElementById("maiorValor").textContent =
+      formatarMoeda(i.maior_remuneracao.valor);
+
+    document.getElementById("maiorNome").textContent =
+      i.maior_remuneracao.nome;
+
+    document.getElementById("menorValor").textContent =
+      formatarMoeda(i.menor_remuneracao.valor);
+
+    document.getElementById("menorNome").textContent =
+      i.menor_remuneracao.nome;
+  }
+
+  function desenharGrafico() {
+    const campo =
+      document.getElementById("metricaCargo").value;
+
+    const lista = [...dados.por_cargo]
+      .sort((a, b) => b[campo] - a[campo]);
+
+    const maior = Math.max(
+      ...lista.map(item => Number(item[campo] || 0)),
+      1
+    );
+
+    const grafico =
+      document.getElementById("graficoCargo");
+
+    grafico.innerHTML = "";
+
+    lista.forEach(item => {
+      const percentual =
+        (Number(item[campo] || 0) / maior) * 100;
+
+      const linha = document.createElement("div");
+      linha.className = "grafico-linha";
+
+      linha.innerHTML = `
+        <div class="cargo">
+          ${escapar(item.cargo)}
+          <span style="color:#637282;font-weight:400">
+            (${item.quantidade})
+          </span>
+        </div>
+
+        <div class="barra-fundo">
+          <div
+            class="barra"
+            style="width:${percentual}%"
+          ></div>
+        </div>
+
+        <div class="grafico-valor">
+          ${formatarMoeda(item[campo])}
+        </div>
+      `;
+
+      grafico.appendChild(linha);
+    });
+  }
+
+  function preencherRanking() {
+    const ranking = [...registros]
+      .sort((a, b) => b.liquido - a.liquido)
+      .slice(0, 5);
+
+    const elemento =
+      document.getElementById("ranking");
+
+    elemento.innerHTML = "";
+
+    ranking.forEach((item, indice) => {
+      const card = document.createElement("div");
+      card.className = "ranking-item";
+
+      card.innerHTML = `
+        <div class="ranking-posicao">
+          ${indice + 1}º
+        </div>
+
+        <div class="ranking-nome">
+          ${escapar(item.nome)}
+        </div>
+
+        <div class="ranking-cargo">
+          ${escapar(item.cargo)}
+        </div>
+
+        <div class="ranking-valor">
+          ${formatarMoeda(item.liquido)}
+        </div>
+      `;
+
+      elemento.appendChild(card);
+    });
+  }
+
+  function preencherFiltroCargo() {
+    const cargos = [
+      ...new Set(
+        registros.map(item => item.cargo)
+      )
+    ].sort(
+      (a, b) => a.localeCompare(
+        b,
+        "pt-BR"
+      )
+    );
+
+    const select =
+      document.getElementById("filtroCargo");
+
+    cargos.forEach(cargo => {
+      const option =
+        document.createElement("option");
+
+      option.value = cargo;
+      option.textContent = cargo;
+
+      select.appendChild(option);
+    });
+  }
+
+  function atualizarTabela() {
+    const pesquisa =
+      document.getElementById("pesquisa")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cargo =
+      document.getElementById("filtroCargo")
+        .value;
+
+    const ordenacao =
+      document.getElementById("ordenacao")
+        .value;
+
+    let lista = registros.filter(item => {
+      const batePesquisa =
+        !pesquisa ||
+        item.nome.toLowerCase().includes(pesquisa) ||
+        item.cargo.toLowerCase().includes(pesquisa);
+
+      const bateCargo =
+        !cargo || item.cargo === cargo;
+
+      return batePesquisa && bateCargo;
+    });
+
+    if (ordenacao === "liquido_desc") {
+      lista.sort((a, b) => b.liquido - a.liquido);
+    }
+
+    if (ordenacao === "liquido_asc") {
+      lista.sort((a, b) => a.liquido - b.liquido);
+    }
+
+    if (ordenacao === "nome") {
+      lista.sort(
+        (a, b) =>
+          a.nome.localeCompare(
+            b.nome,
+            "pt-BR"
+          )
+      );
+    }
+
+    if (ordenacao === "proventos_desc") {
+      lista.sort(
+        (a, b) =>
+          b.proventos - a.proventos
+      );
+    }
+
+    const corpo =
+      document.getElementById("tabelaCorpo");
+
+    corpo.innerHTML = "";
+
+    lista.forEach(item => {
+      const linha = document.createElement("tr");
+
+      linha.innerHTML = `
+        <td>${escapar(item.nome)}</td>
+        <td>${escapar(item.cargo)}</td>
+        <td class="numero">
+          ${formatarMoeda(item.salario_cadastro)}
+        </td>
+        <td class="numero">
+          ${formatarMoeda(item.proventos)}
+        </td>
+        <td class="numero">
+          ${formatarMoeda(item.descontos)}
+        </td>
+        <td class="numero">
+          ${formatarMoeda(item.inss)}
+        </td>
+        <td class="numero">
+          <strong>${formatarMoeda(item.liquido)}</strong>
+        </td>
+      `;
+
+      corpo.appendChild(linha);
+    });
+  }
+
+  function preencherFonte() {
+    const fonte = dados.fonte || {};
+
+    document.getElementById(
+      "cabecalhoStatus"
+    ).textContent =
+      `Ano monitorado: ${dados.ano} | ` +
+      `Relatório: ${fonte.nome || "não informado"} | ` +
+      `Upload: ${fonte.data_upload || "não informado"}`;
+
+    document.getElementById(
+      "informacoesFonte"
+    ).innerHTML =
+      `<strong>Fonte:</strong> Portal da Transparência do Coren-GO<br>` +
+      `<strong>Arquivo:</strong> ${escapar(fonte.nome || "")}<br>` +
+      `<strong>Data de upload:</strong> ${escapar(fonte.data_upload || "")}<br>` +
+      `<strong>Última execução do monitor:</strong> ${escapar(dados.atualizado_em || "")}`;
+
+    if (fonte.url) {
+      document.getElementById(
+        "linkRelatorio"
+      ).href = fonte.url;
+    }
+  }
+
+  async function carregar() {
+    try {
+      const resposta =
+        await fetch(
+          "./dados.json?ts=" + Date.now()
+        );
+
+      if (!resposta.ok) {
+        throw new Error(
+          "Não foi possível carregar dados.json"
+        );
+      }
+
+      dados = await resposta.json();
+      registros = dados.registros || [];
+
+      preencherCards();
+      desenharGrafico();
+      preencherRanking();
+      preencherFiltroCargo();
+      atualizarTabela();
+      preencherFonte();
+
+    } catch (erro) {
+      document.body.innerHTML = `
+        <div class="erro">
+          <strong>Erro ao carregar o painel.</strong>
+          <p>${escapar(erro.message)}</p>
+        </div>
+      `;
+    }
+  }
+
+  document
+    .getElementById("metricaCargo")
+    .addEventListener(
+      "change",
+      desenharGrafico
+    );
+
+  document
+    .getElementById("pesquisa")
+    .addEventListener(
+      "input",
+      atualizarTabela
+    );
+
+  document
+    .getElementById("filtroCargo")
+    .addEventListener(
+      "change",
+      atualizarTabela
+    );
+
+  document
+    .getElementById("ordenacao")
+    .addEventListener(
+      "change",
+      atualizarTabela
+    );
+
+  carregar();
+</script>
+
+</body>
+</html>
