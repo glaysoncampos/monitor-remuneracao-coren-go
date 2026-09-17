@@ -44,6 +44,7 @@ jobs:
         run: |
           git config user.name "Monitor Automatico"
           git config user.email "actions@github.com"
+
           git add docs/dados.json docs/remuneracoes.csv
 
           if git diff --cached --quiet; then
@@ -54,10 +55,10 @@ jobs:
           fi
 
       - name: Preparar arquivos do site
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: docs
 
       - name: Publicar no GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
