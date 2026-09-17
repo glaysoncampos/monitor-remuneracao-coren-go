@@ -124,19 +124,51 @@ def localizar_pdf_mais_recente(conexao, lista_id):
             "foi encontrado no portal."
         )
 
-    def converter_data(item):
-        try:
-            return datetime.strptime(
-                item.get("DataUpload", ""),
-                "%d/%m/%Y"
-            )
-        except ValueError:
-            return datetime.min
+    def chave_ordenacao(item):
+    try:
+        data_upload = datetime.strptime(
+            item.get("DataUpload", ""),
+            "%d/%m/%Y"
+        )
+    except ValueError:
+        data_upload = datetime.min
 
-    mais_recente = max(
-        arquivos,
-        key=converter_data
+    anexo = item.get("Anexo") or {}
+
+    nome_arquivo = (
+        anexo.get("Nome")
+        or item.get("Nome")
+        or ""
     )
+
+    mes = 0
+    ano_referencia = 0
+
+    encontrado = re.search(
+        r"(\d{1,2})\s*[-_/ ]\s*(20\d{2})",
+        nome_arquivo
+    )
+
+    if encontrado:
+        mes = int(
+            encontrado.group(1)
+        )
+
+        ano_referencia = int(
+            encontrado.group(2)
+        )
+
+    return (
+        data_upload,
+        ano_referencia,
+        mes
+    )
+
+
+mais_recente = max(
+    arquivos,
+    key=chave_ordenacao
+)
 
     anexo = mais_recente["Anexo"]
 
