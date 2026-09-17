@@ -9,11 +9,16 @@ from config import BASE_URL, TARGET_SECTION, TIMEOUT
 
 
 def normalizar(texto):
-    texto = " ".join(str(texto or "").split()).lower()
+    texto = " ".join(
+        str(texto or "").split()
+    ).lower()
 
     return "".join(
         caractere
-        for caractere in unicodedata.normalize("NFD", texto)
+        for caractere in unicodedata.normalize(
+            "NFD",
+            texto
+        )
         if unicodedata.category(caractere) != "Mn"
     )
 
@@ -44,7 +49,9 @@ def descobrir_lista_mais_nova(conexao):
         "html.parser"
     )
 
-    alvo = normalizar(TARGET_SECTION)
+    alvo = normalizar(
+        TARGET_SECTION
+    )
 
     for item_menu in pagina.select("li"):
         link_principal = item_menu.find(
@@ -70,11 +77,16 @@ def descobrir_lista_mais_nova(conexao):
         for link_ano in item_menu.select(
             "a[href*='publico/Listas?id=']"
         ):
-            ano = link_ano.get_text(strip=True)
+            ano = link_ano.get_text(
+                strip=True
+            )
 
             lista = re.search(
                 r"id=([0-9a-f-]{36})",
-                link_ano.get("href", ""),
+                link_ano.get(
+                    "href",
+                    ""
+                ),
                 re.IGNORECASE
             )
 
@@ -84,69 +96,37 @@ def descobrir_lista_mais_nova(conexao):
                 and lista
             ):
                 anos_encontrados.append(
-                    (int(ano), lista.group(1))
+                    (
+                        int(ano),
+                        lista.group(1)
+                    )
                 )
 
         if anos_encontrados:
-            return max(anos_encontrados)
+            return max(
+                anos_encontrados
+            )
 
     raise RuntimeError(
-        "Não foi possível localizar automaticamente "
-        "a seção Remuneração de Empregados no portal."
+        "Não foi possível localizar "
+        "automaticamente a seção "
+        "Remuneração de Empregados."
     )
 
 
-def localizar_pdf_mais_recente(conexao, lista_id):
-    endereco = (
-        f"{BASE_URL}"
-        "Publico/Listas/BuscarEntity"
+def extrair_mes_ano(nome_arquivo):
+    texto = normalizar(
+        nome_arquivo
     )
 
-    resposta = conexao.post(
-        endereco,
-        data={"id": lista_id},
-        timeout=TIMEOUT
-    )
-
-    resposta.raise_for_status()
-
-    dados = resposta.json().get("data") or {}
-
-    arquivos = [
-        item
-        for item in dados.get("Itens", [])
-        if item.get("Anexo")
+    padroes = [
+        r"(\d{1,2})\s*[-_/ ]\s*(20\d{2})",
+        r"(20\d{2})\s*[-_/ ]\s*(\d{1,2})",
     ]
 
-    if not arquivos:
-        raise RuntimeError(
-            "Nenhum relatório de remuneração "
-            "foi encontrado no portal."
-        )
-
-    def chave_ordenacao(item):
-    try:
-        data_upload = datetime.strptime(
-            item.get("DataUpload", ""),
-            "%d/%m/%Y"
-        )
-    except ValueError:
-        data_upload = datetime.min
-
-    anexo = item.get("Anexo") or {}
-
-    nome_arquivo = (
-        anexo.get("Nome")
-        or item.get("Nome")
-        or ""
-    )
-
-    mes = 0
-    ano_referencia = 0
-
     encontrado = re.search(
-        r"(\d{1,2})\s*[-_/ ]\s*(20\d{2})",
-        nome_arquivo
+        padroes[0],
+        texto
     )
 
     if encontrado:
@@ -154,38 +134,174 @@ def localizar_pdf_mais_recente(conexao, lista_id):
             encontrado.group(1)
         )
 
-        ano_referencia = int(
+        ano = int(
             encontrado.group(2)
         )
 
-    return (
-        data_upload,
-        ano_referencia,
-        mes
+        if 1 <= mes <= 12:
+            return ano, mes
+
+    encontrado = re.search(
+        padroes[1],
+        texto
     )
 
+    if encontrado:
+        ano = int(
+            encontrado.group(1)
+        )
 
-mais_recente = max(
-    arquivos,
-    key=chave_ordenacao
-)
+        mes = int(
+            encontrado.group(2)
+        )
 
-    anexo = mais_recente["Anexo"]
+        if 1 <= mes <= 12:
+            return ano, mes
+
+    meses = {
+        "janeiro": 1,
+        "fevereiro": 2,
+        "marco": 3,
+        "abril": 4,
+        "maio": 5,
+        "junho": 6,
+        "julho": 7,
+        "agosto": 8,
+        "setembro": 9,
+        "outubro": 10,
+        "novembro": 11,
+        "dezembro": 12,
+    }
+
+    for nome_mes, numero_mes in meses.items():
+        if nome_mes not in texto:
+            continue
+
+        ano_encontrado = re.search(
+            r"(20\d{2})",
+            texto
+        )
+
+        if ano_encontrado:
+            return (
+                int(
+                    ano_encontrado.group(1)
+                ),
+                numero_mes
+            )
+
+    return 0, 0
+
+
+def localizar_pdf_mais_recente(
+    conexao,
+    lista_id
+):
+    endereco = (
+        f"{BASE_URL}"
+        "Publico/Listas/BuscarEntity"
+    )
+
+    resposta = conexao.post(
+        endereco,
+        data={
+            "id": lista_id
+        },
+        timeout=TIMEOUT
+    )
+
+    resposta.raise_for_status()
+
+    dados = (
+        resposta.json()
+        .get("data")
+        or {}
+    )
+
+    arquivos = [
+        item
+        for item in dados.get(
+            "Itens",
+            []
+        )
+        if item.get("Anexo")
+    ]
+
+    if not arquivos:
+        raise RuntimeError(
+            "Nenhum relatório de "
+            "remuneração foi encontrado."
+        )
+
+    def chave_ordenacao(item):
+        try:
+            data_upload = (
+                datetime.strptime(
+                    item.get(
+                        "DataUpload",
+                        ""
+                    ),
+                    "%d/%m/%Y"
+                )
+            )
+
+        except ValueError:
+            data_upload = (
+                datetime.min
+            )
+
+        anexo = (
+            item.get("Anexo")
+            or {}
+        )
+
+        nome_arquivo = (
+            anexo.get("Nome")
+            or item.get("Nome")
+            or ""
+        )
+
+        ano_referencia, mes = (
+            extrair_mes_ano(
+                nome_arquivo
+            )
+        )
+
+        return (
+            data_upload,
+            ano_referencia,
+            mes
+        )
+
+    mais_recente = max(
+        arquivos,
+        key=chave_ordenacao
+    )
+
+    anexo = (
+        mais_recente[
+            "Anexo"
+        ]
+    )
 
     anexo_id = (
-        anexo.get("IdArquivoAnexo")
+        anexo.get(
+            "IdArquivoAnexo"
+        )
         or anexo.get("Id")
     )
 
     if not anexo_id:
         raise RuntimeError(
-            "O relatório foi encontrado, mas o "
-            "identificador do PDF não foi localizado."
+            "O relatório foi encontrado, "
+            "mas o identificador do PDF "
+            "não foi localizado."
         )
 
     url_pdf = (
         f"{BASE_URL}"
-        "Publico/ArquivosAnexos/Download"
+        "Publico/ArquivosAnexos/"
+        "Download"
         f"?idArquivoAnexo={anexo_id}"
     )
 
@@ -194,15 +310,22 @@ mais_recente = max(
             "TituloPagina",
             "Remuneração de Empregados"
         ),
-        "nome": anexo.get("Nome"),
-        "data_upload": mais_recente.get(
-            "DataUpload"
+        "nome": anexo.get(
+            "Nome"
+        ),
+        "data_upload": (
+            mais_recente.get(
+                "DataUpload"
+            )
         ),
         "url": url_pdf
     }
 
 
-def baixar_pdf(conexao, url):
+def baixar_pdf(
+    conexao,
+    url
+):
     resposta = conexao.get(
         url,
         timeout=TIMEOUT
@@ -210,9 +333,12 @@ def baixar_pdf(conexao, url):
 
     resposta.raise_for_status()
 
-    if not resposta.content.startswith(b"%PDF"):
+    if not resposta.content.startswith(
+        b"%PDF"
+    ):
         raise RuntimeError(
-            "O arquivo encontrado não é um PDF válido."
+            "O arquivo encontrado "
+            "não é um PDF válido."
         )
 
     return resposta.content
